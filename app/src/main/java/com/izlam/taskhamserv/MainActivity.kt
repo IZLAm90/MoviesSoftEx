@@ -17,19 +17,14 @@ import com.izlam.taskhamserv.databinding.ActivityMainBinding
 class MainActivity : AppCompatActivity() {
    private lateinit var viewModel: MainViewModel
     lateinit var binding:ActivityMainBinding
-
+    var list:ArrayList<ModelCategory> = arrayListOf()
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding= ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
-        var list:ArrayList<ModelCategory> = arrayListOf()
-        list.add(ModelCategory(5,"islam",2))
-        list.add(ModelCategory(5,"islam",2))
-        list.add(ModelCategory(5,"islam",2))
-        list.add(ModelCategory(5,"islam",2))
-        list.add(ModelCategory(5,"islam",2))
-        list.add(ModelCategory(5,"islam",2))
-        setRecycler(list)
+
+
+
         getCategory()
         binding.move.setOnClickListener {
             startActivity(Intent(this,Livestreams::class.java))
@@ -50,6 +45,8 @@ class MainActivity : AppCompatActivity() {
         viewModel.getPost("get_live_categories")
         viewModel.myResponse.observe(this, Observer {responce ->
             if (responce.isSuccessful){
+                list=responce.body()!!
+                setRecycler(list)
                 Log.d("testing1",responce.body().toString())
             }
             else
