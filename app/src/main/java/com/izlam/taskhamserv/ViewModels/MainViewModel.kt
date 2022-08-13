@@ -1,44 +1,34 @@
 package com.izlam.taskhamserv.ViewModels
 
-import android.util.Log
+import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
-import com.izlam.taskhamserv.Models.ModelCategory
-import com.izlam.taskhamserv.Models.live_streamsModel
+import com.izlam.taskhamserv.Models.TopRateMoviesModel
+import com.izlam.taskhamserv.utils.NetworkResult
 import com.izlam.taskhamserv.Repositorys.Repository
-import kotlinx.coroutines.Dispatchers
-import kotlinx.coroutines.launch
-import kotlinx.coroutines.withContext
+import dagger.hilt.android.lifecycle.HiltViewModel
+import kotlinx.coroutines.*
 
 
-import retrofit2.Response
+import javax.inject.Inject
+@HiltViewModel
+class MainViewModel @Inject constructor (private val repository: Repository): ViewModel() {
 
-class MainViewModel(private val repository: Repository): ViewModel() {
+    private var _movieResponse = MutableLiveData<NetworkResult<TopRateMoviesModel>>()
+    val movieResponse: LiveData<NetworkResult<TopRateMoviesModel>> = _movieResponse
 
-    var myResponse: MutableLiveData<Response<ArrayList<ModelCategory>>> = MutableLiveData()
-    var responcelive:MutableLiveData<Response<ArrayList<live_streamsModel>>> =MutableLiveData()
-
-    fun getPost(action :String){
-        viewModelScope.launch {
-            val response = repository.getCategory(action)
-            myResponse.value = response
-            Log.d("response1",response.message().toString())
-
-        }
+    init {
+        fetchAllMovies()
     }
 
-    fun get(){
+    private fun fetchAllMovies() {
         viewModelScope.launch {
-            val response=repository.getLiveStram()
-            responcelive.value=response
-            Log.d("response2",response.message().toString())
+            repository.getPopularMovies().collect {
+                _movieResponse.postValue(it)
+            }
         }
-
     }
-
-
-
 
 
 }

@@ -1,17 +1,29 @@
 package com.izlam.taskhamserv.Repositorys
 
-import com.izlam.taskhamserv.ApiService.RetrofitInstance
-import com.izlam.taskhamserv.Models.ModelCategory
-import com.izlam.taskhamserv.Models.live_streamsModel
-import retrofit2.Response
+import com.izlam.taskhamserv.ApiService.SimpleApi
+import com.izlam.taskhamserv.utils.NetworkResult
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.flow.catch
+import kotlinx.coroutines.flow.flow
+import kotlinx.coroutines.flow.flowOn
+import javax.inject.Inject
 
-class Repository {
+class Repository @Inject constructor(private val apiService:SimpleApi) {
 
-    suspend fun getCategory(action:String):Response<ArrayList<ModelCategory>>{
-        return RetrofitInstance.api.getCategory(action=action)
+
+    suspend fun getPopularMovies()= flow{
+        emit(NetworkResult.Loading(true))
+        val responce=apiService.getTopRatedMovies()
+        emit(NetworkResult.Success(responce))
+    }.flowOn(Dispatchers.IO)
+        .catch { e->
+        emit(NetworkResult.Failure(e.message ?: "unKwonError"))
     }
-
-    suspend fun getLiveStram():Response<ArrayList<live_streamsModel>>{
-        return RetrofitInstance.api.getLiveStream()
-    }
+//    suspend fun getCategory(action:String):Deferred<ArrayList<ModelCategory>>{
+//        return RetrofitInstance.api.getCategory(action=action)
+//    }
+//
+//    suspend fun getLiveStram():Deferred<ArrayList<live_streamsModel>>{
+//        return RetrofitInstance.api.getLiveStream()
+//    }
 }
