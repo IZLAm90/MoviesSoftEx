@@ -1,7 +1,8 @@
 package com.izlam.taskhamserv.Models
 
+import androidx.room.Entity
 import com.google.gson.annotations.SerializedName
-
+@Entity(tableName = "Results" , primaryKeys =["id"])
 data class Results(
     @SerializedName("adult") var adult:Boolean,
     @SerializedName("backdrop_path") var backdrop_path:String,
