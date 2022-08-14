@@ -4,6 +4,7 @@ import android.os.Bundle
 import android.util.Log
 import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
+import androidx.navigation.fragment.NavHostFragment
 import com.izlam.taskhamserv.ViewModels.MainViewModel
 import com.izlam.taskhamserv.databinding.ActivityMainBinding
 import com.izlam.taskhamserv.utils.NetworkResult
@@ -11,29 +12,17 @@ import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint
 class MainActivity : AppCompatActivity() {
-   private val viewModel: MainViewModel by viewModels()
-    lateinit var binding:ActivityMainBinding
+
+    lateinit var binding: ActivityMainBinding
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        binding= ActivityMainBinding.inflate(layoutInflater)
+        binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
-
-        viewModel.movieResponse.observe(this){
-            when(it){
-                is NetworkResult.Loading ->{
-                    Log.d("islam", "onCreate: Loading  ")
-                }
-                is NetworkResult.Success ->{
-                    Log.d("islam", "onCreate: ${it.data}  ")
-                }
-                is NetworkResult.Failure ->{
-                    Log.d("islam", "onCreate: failuer ${it.errorMessage} ")
-                }
-            }
-        }
-
-
+        val navHostFragment =
+            supportFragmentManager.findFragmentById(R.id.mainNavHost) as NavHostFragment
+        val navController = navHostFragment.navController
+        navController.navigate(R.id.popularMoviesFragment)
     }
 
 //    fun setRecycler(list: ArrayList<ModelCategory>){
@@ -44,7 +33,7 @@ class MainActivity : AppCompatActivity() {
 //    }
 
     override fun onBackPressed() {
-    //    super.onBackPressed()
+        //    super.onBackPressed()
 
     }
 }
