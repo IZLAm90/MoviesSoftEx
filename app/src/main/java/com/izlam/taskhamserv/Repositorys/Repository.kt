@@ -11,9 +11,9 @@ import javax.inject.Inject
 class Repository @Inject constructor(private val apiService:SimpleApi) {
 
 
-    suspend fun getPopularMovies()= flow{
+    suspend fun getPopularMovies(page:Int)= flow{
         emit(NetworkResult.Loading(true))
-        val responce=apiService.getTopRatedMovies()
+        val responce=apiService.getTopRatedMovies(page = page)
         emit(NetworkResult.Success(responce))
     }.flowOn(Dispatchers.IO)
         .catch { e->

@@ -18,7 +18,6 @@
         android:id="@+id/displayrecycler"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_marginTop="60dp"
         tools:listitem="@layout/movies_item"
         />
 </LinearLayout>

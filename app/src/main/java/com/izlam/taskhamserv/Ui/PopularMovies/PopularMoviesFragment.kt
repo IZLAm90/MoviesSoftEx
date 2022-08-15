@@ -49,6 +49,7 @@ class PopularMoviesFragment : Fragment() {
         movies_rv.setHasFixedSize(false)
         movies_rv.layoutManager= GridLayoutManager(requireContext(),2)
         movies_rv.adapter=adapter
+     //   viewModel.fetchAllMovies((Math.random()*10).toInt())
     }
     fun getDataFromServer(){
         viewModel.movieResponse.observe(viewLifecycleOwner){
@@ -58,7 +59,14 @@ class PopularMoviesFragment : Fragment() {
                 }
                 is NetworkResult.Success ->{
                     Timber.d("onCreate:Success ${it.data.results}")
-                    adapter.setDataFirstTime(it.data.results)
+                    if (it.data.page==0){
+                        adapter.setDataFirstTime(it.data.results)
+                    }
+                   else{
+                       if (it.data.page<=20)
+                       viewModel.fetchAllMovies(it.data.page+1)
+                       adapter.UpdateData(it.data.results)
+                    }
                 }
                 is NetworkResult.Failure ->{
                     Timber.d("onCreate:Failure ${it.errorMessage}")

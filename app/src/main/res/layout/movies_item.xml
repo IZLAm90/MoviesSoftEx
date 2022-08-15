@@ -1,23 +1,71 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_width="@dimen/_150sdp"
-    android:layout_height="@dimen/_150sdp"
-    android:layout_margin="@dimen/_10sdp"
-    android:orientation="vertical"
+<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:id="@+id/moviesLayout"
-    >
-<de.hdodenhof.circleimageview.CircleImageView
     android:layout_width="match_parent"
-    android:layout_height="@dimen/_100sdp"
-    android:id="@+id/postar_img"
-    />
-    <TextView
-        android:id="@+id/title"
+    android:layout_height="@dimen/_150sdp"
+    android:layout_gravity="center"
+    app:cardCornerRadius="@dimen/_7sdp"
+    android:elevation="3dp"
+    android:orientation="vertical"
+    android:shadowDx="2"
+    android:shadowDy="2"
+    android:shadowRadius="2"
+    app:cardElevation="@dimen/_1sdp"
+    app:cardPreventCornerOverlap="true"
+    app:cardUseCompatPadding="true"
+ >
+    <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="@string/moviesname"
-        android:gravity="center_horizontal"
-        android:layout_marginTop="@dimen/_10sdp"
-        />
+        android:layout_height="match_parent"
+        android:gravity="center"
+        android:background="#FA9700"
+        android:orientation="vertical"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintDimensionRatio="1"
+        app:layout_constraintTop_toTopOf="parent">
 
-</LinearLayout>
+        <ImageView
+            android:id="@+id/postar_img"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/_70sdp"
+            android:layout_marginHorizontal="24dp"
+            android:layout_marginTop="8dp"
+            android:layout_weight="1"
+            android:background="@drawable/item_image_background"
+            android:padding="10dp"
+            android:scaleType="centerInside"
+            android:src="@drawable/kora_logo"
+            app:layout_constraintDimensionRatio="1"
+            app:layout_constraintTop_toTopOf="parent" />
+
+
+        <TextView
+            android:id="@+id/title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:layout_marginBottom="8dp"
+            android:ellipsize="end"
+            android:lines="1"
+            android:text="@string/app_name"
+            android:textAlignment="center"
+            android:textColor="@color/black"
+            android:textSize="17sp"
+            android:textStyle="bold" />
+
+        <TextView
+            android:id="@+id/rate"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="@dimen/_15sdp"
+            android:textAlignment="center"
+            android:textColor="@color/design_default_color_primary_dark"
+            android:textSize="16sp"
+            android:visibility="visible" />
+
+
+    </LinearLayout>
+
+
+</androidx.cardview.widget.CardView>

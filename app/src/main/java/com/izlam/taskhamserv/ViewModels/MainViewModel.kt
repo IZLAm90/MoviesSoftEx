@@ -19,12 +19,12 @@ class MainViewModel @Inject constructor (private val repository: Repository): Vi
     val movieResponse: LiveData<NetworkResult<TopRateMoviesModel>> = _movieResponse
 
     init {
-        fetchAllMovies()
+        fetchAllMovies(1)
     }
 
-    private fun fetchAllMovies() {
+    fun fetchAllMovies(page : Int) {
         viewModelScope.launch {
-            repository.getPopularMovies().collect {
+            repository.getPopularMovies(page).collect {
                 _movieResponse.postValue(it)
             }
         }
