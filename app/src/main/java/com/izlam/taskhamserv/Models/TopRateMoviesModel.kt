@@ -1,7 +1,8 @@
 package com.izlam.taskhamserv.Models
 
+import androidx.room.Entity
 import com.google.gson.annotations.SerializedName
-
+@Entity(tableName = "TopRateMoviesModel")
 data class TopRateMoviesModel(
 @SerializedName("page") var page:Int=0,
 @SerializedName("results") var results : List<Results>,
