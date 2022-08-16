@@ -6,9 +6,70 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     tools:context=".Ui.PopularMovies.PopularMoviesFragment"
     android:orientation="vertical"
+    android:background="@color/colorAppBarBackground"
     >
 
-<!--    <androidx.recyclerview.widget.RecyclerView-->
+
+
+    <androidx.appcompat.widget.Toolbar
+        android:layout_marginTop="@dimen/_12sdp"
+        android:id="@+id/toolBar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/colorAppBarBackground"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:focusable="true"
+            android:orientation="horizontal"
+            android:gravity="center_vertical"
+            android:focusableInTouchMode="true">
+
+
+            <ImageView
+                android:id="@+id/toolBarLogo"
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                android:layout_marginEnd="@dimen/_10sdp"
+                android:src="@drawable/kora_logo"
+                android:visibility="visible"/>
+
+
+            <EditText
+                android:id="@+id/search_et"
+                android:layout_width="0dp"
+                android:layout_weight="1"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="25dp"
+                android:background="@drawable/item_background_gray"
+                android:drawableStart="@drawable/ic_search"
+                android:hint="search"
+                android:imeOptions="actionSearch"
+                android:inputType="text"
+                android:maxLines="1"
+                android:padding="8dp"
+                android:drawablePadding="@dimen/_10sdp"
+                android:textColor="@color/colorBlack"
+                android:textColorHint="@color/colorGray"
+                android:textSize="16sp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/toolBarLogo" />
+
+
+        </LinearLayout>
+
+    </androidx.appcompat.widget.Toolbar>
+
+
+
+
+    <!--    <androidx.recyclerview.widget.RecyclerView-->
 <!--        android:id="@+id/movieCategorylist"-->
 <!--        android:layout_width="match_parent"-->
 <!--        android:layout_height="wrap_content"-->
@@ -19,5 +80,6 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         tools:listitem="@layout/movies_item"
+
         />
 </LinearLayout>
