@@ -12,5 +12,6 @@
     <color name="colorBlack">#000000</color>
     <color name="colorGray">#dedede</color>
     <color name="colorDarkBackground">#191919</color>
+    <color name="colorGrey">#dddddd</color>
 
 </resources>

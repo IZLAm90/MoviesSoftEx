@@ -12,11 +12,19 @@
         tools:layout="@layout/fragment_popular_movies" >
         <action
             android:id="@+id/action_popularMoviesFragment_to_singleMovieFragment"
-            app:destination="@id/singleMovieFragment" />
+            app:destination="@id/singleMovieFragment"
+
+            />
     </fragment>
     <fragment
         android:id="@+id/singleMovieFragment"
         android:name="com.izlam.taskhamserv.Ui.SingleMovieFragment"
         android:label="fragment_single_movie"
-        tools:layout="@layout/fragment_single_movie" />
+        tools:layout="@layout/fragment_single_movie" >
+        <action
+            android:id="@+id/action_singleMovieFragment_to_popularMoviesFragment"
+            app:popUpTo="@id/popularMoviesFragment"
+            app:popUpToSaveState="true"
+            />
+    </fragment>
 </navigation>

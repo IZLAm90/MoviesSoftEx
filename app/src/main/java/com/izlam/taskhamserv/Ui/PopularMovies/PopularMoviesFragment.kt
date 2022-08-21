@@ -5,11 +5,15 @@ import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.core.os.bundleOf
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.lifecycleScope
+import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.RecyclerView
+import com.izlam.taskhamserv.Models.Results
+import com.izlam.taskhamserv.R
 import com.izlam.taskhamserv.Ui.PopularMovies.AdapterPopular.AdapterPop
 import com.izlam.taskhamserv.ViewModels.MainViewModel
 import com.izlam.taskhamserv.databinding.FragmentPopularMoviesBinding
@@ -40,6 +44,7 @@ class PopularMoviesFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+        binding.shimmerFrameLayout.startShimmer()
         setUpRv()
         getDataFromServer()
     }
@@ -49,6 +54,11 @@ class PopularMoviesFragment : Fragment() {
         movies_rv.setHasFixedSize(false)
         movies_rv.layoutManager= GridLayoutManager(requireContext(),2)
         movies_rv.adapter=adapter
+        adapter.onClickListener = { _,movie ->
+            val bundle = bundleOf("movie" to movie.title)
+            findNavController().navigate(R.id.action_popularMoviesFragment_to_singleMovieFragment,bundle)
+
+        }
      //   viewModel.fetchAllMovies((Math.random()*10).toInt())
     }
     fun getDataFromServer(){
@@ -59,6 +69,9 @@ class PopularMoviesFragment : Fragment() {
                 }
                 is NetworkResult.Success ->{
                     Timber.d("onCreate:Success ${it.data.results}")
+                    binding.shimmerFrameLayout.stopShimmer()
+                    binding.shimmerFrameLayout.visibility=View.GONE
+                    binding.displayrecycler.visibility=View.VISIBLE
                     if (it.data.page==0){
                         adapter.setDataFirstTime(it.data.results)
                     }

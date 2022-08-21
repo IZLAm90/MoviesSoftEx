@@ -18,10 +18,11 @@
         <entry key="app/src/main/res/drawable-v24/item_image_background.xml" value="0.326" />
         <entry key="app/src/main/res/layout/activity_main.xml" value="0.1609375" />
         <entry key="app/src/main/res/layout/category_movies.xml" value="0.1" />
-        <entry key="app/src/main/res/layout/fragment_popular_movies.xml" value="0.21875" />
+        <entry key="app/src/main/res/layout/fragment_popular_movies.xml" value="0.33" />
         <entry key="app/src/main/res/layout/fragment_single_movie.xml" value="0.3234375" />
         <entry key="app/src/main/res/layout/item_focus.xml" value="0.3234375" />
         <entry key="app/src/main/res/layout/movies_item.xml" value="0.2682291666666667" />
+        <entry key="app/src/main/res/layout/shimmer_placeholder_layout.xml" value="0.3234375" />
       </map>
     </option>
   </component>

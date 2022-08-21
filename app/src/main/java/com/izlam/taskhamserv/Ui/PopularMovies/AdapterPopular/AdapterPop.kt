@@ -17,6 +17,7 @@ import com.izlam.taskhamserv.Models.Results
 import com.izlam.taskhamserv.R
 import com.izlam.taskhamserv.Ui.PopularMovies.AdapterPopular.AdapterPop.PopUlarHolder
 import com.izlam.taskhamserv.databinding.MoviesItemBinding
+import com.izlam.taskhamserv.utils.Constant
 import de.hdodenhof.circleimageview.CircleImageView
 
 class AdapterPop : RecyclerView.Adapter<PopUlarHolder>() {
@@ -43,7 +44,7 @@ class AdapterPop : RecyclerView.Adapter<PopUlarHolder>() {
                 .into(poster)
 
             moviesLayout.setOnClickListener{
-                onClickListener?.invoke(adapterPosition,movie)
+                onClickListener?.invoke(absoluteAdapterPosition,movie)
             }
         }
 
