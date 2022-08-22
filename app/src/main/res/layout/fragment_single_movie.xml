@@ -1,17 +1,20 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.core.widget.NestedScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/colorItemBackground"
     tools:context=".Ui.SingleMovieFragment">
-
+<androidx.constraintlayout.widget.ConstraintLayout
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
     <org.imaginativeworld.whynotimagecarousel.ImageCarousel
         android:id="@+id/carousel"
         android:layout_width="match_parent"
         android:layout_height="@dimen/_250sdp"
         android:background="@color/colorDarkBackground"
+        android:visibility="gone"
         app:autoPlay="true"
         app:autoPlayDelay="2000"
         app:imagePlaceholder="@drawable/kora_logo"
@@ -23,13 +26,79 @@
         app:showIndicator="false"
         app:showNavigationButtons="false" />
 
-    <TextView
+    <ImageView
+        android:id="@+id/img_place"
         android:layout_width="match_parent"
-        android:layout_height="@dimen/_20sdp"
+        android:layout_height="@dimen/_250sdp"
+        android:src="@drawable/kora_logo"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/title_name"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/_20sdp"
+        android:layout_marginEnd="@dimen/_20sdp"
+        android:textColor="@color/white"
+        android:textSize="@dimen/_20sdp"
+        android:text="Title :"
         app:layout_constraintStart_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/carousel"
-        android:id="@+id/title_name"
+        app:layout_constraintTop_toBottomOf="@+id/img_place" />
+
+    <TextView
+        android:id="@+id/over_view"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/_20sdp"
+        android:layout_marginEnd="@dimen/_20sdp"
+        android:textColor="@color/white"
+        android:text="The world will never be the same once you've seen it through the eyes of Forrest Gump."
+        android:textSize="@dimen/_15sdp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/title_name"
+
         />
 
+    <TextView
+        android:id="@+id/rate"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/_30sdp"
+        android:layout_marginStart="@dimen/_20sdp"
+        android:layout_marginEnd="@dimen/_20sdp"
+        android:textColor="@color/white"
+        android:textSize="@dimen/_15sdp"
+        android:text="Rating : "
+        android:padding="@dimen/_5sdp"
+        android:gravity="center_vertical"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/over_view" />
+
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/_30sdp"
+        android:id="@+id/actorTitle"
+        android:textSize="@dimen/_20sdp"
+        android:text="Recomindation"
+        android:layout_margin="@dimen/_20sdp"
+        android:textColor="@color/white"
+        app:layout_constraintTop_toBottomOf="@+id/rate"
+        app:layout_constraintStart_toStartOf="parent"
+        />
+    <androidx.recyclerview.widget.RecyclerView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/recom_Rv"
+        tools:listitem="@layout/actors"
+        app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+        android:orientation="horizontal"
+        app:layout_constraintTop_toBottomOf="@+id/actorTitle"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_marginBottom="@dimen/_20sdp"
+
+        />
 </androidx.constraintlayout.widget.ConstraintLayout>
+</androidx.core.widget.NestedScrollView>

@@ -55,11 +55,11 @@ class PopularMoviesFragment : Fragment() {
         movies_rv.layoutManager= GridLayoutManager(requireContext(),2)
         movies_rv.adapter=adapter
         adapter.onClickListener = { _,movie ->
-            val bundle = bundleOf("movie" to movie.title)
+            val bundle = bundleOf("movie" to movie.id)
             findNavController().navigate(R.id.action_popularMoviesFragment_to_singleMovieFragment,bundle)
 
         }
-     //   viewModel.fetchAllMovies((Math.random()*10).toInt())
+
     }
     fun getDataFromServer(){
         viewModel.movieResponse.observe(viewLifecycleOwner){
@@ -67,6 +67,7 @@ class PopularMoviesFragment : Fragment() {
                 is NetworkResult.Loading ->{
                     Timber.d("onCreate:Loading Loading")
                 }
+
                 is NetworkResult.Success ->{
                     Timber.d("onCreate:Success ${it.data.results}")
                     binding.shimmerFrameLayout.stopShimmer()

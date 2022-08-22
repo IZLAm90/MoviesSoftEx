@@ -15,16 +15,9 @@ class Repository @Inject constructor(private val apiService:SimpleApi) {
         emit(NetworkResult.Loading(true))
         val responce=apiService.getTopRatedMovies(page = page)
         emit(NetworkResult.Success(responce))
-//        appDB.insetPopular(responce)
     }.flowOn(Dispatchers.IO)
         .catch { e->
         emit(NetworkResult.Failure(e.message ?: "unKwonError"))
     }
-//    suspend fun getCategory(action:String):Deferred<ArrayList<ModelCategory>>{
-//        return RetrofitInstance.api.getCategory(action=action)
-//    }
-//
-//    suspend fun getLiveStram():Deferred<ArrayList<live_streamsModel>>{
-//        return RetrofitInstance.api.getLiveStream()
-//    }
+
 }

@@ -27,6 +27,7 @@ class AdapterPop : RecyclerView.Adapter<PopUlarHolder>() {
     private val options :RequestOptions by lazy {
         RequestOptions.centerCropTransform()
             .diskCacheStrategy(DiskCacheStrategy.ALL)
+            .centerCrop()
             .priority(Priority.HIGH)
     }
   inner class PopUlarHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
@@ -37,7 +38,7 @@ class AdapterPop : RecyclerView.Adapter<PopUlarHolder>() {
         fun bindData(movie:Results){
             Title.text=movie.title
             rate.text= "${movie.popularity} "
-            Glide.with(poster).load("https://www.gravatar.com/avatar"+movie.poster_path)
+            Glide.with(poster).load(Constant.BASE_URL_IMG+movie.poster_path)
                 .thumbnail(0.01f)
                 .apply(options)
                 .transition(DrawableTransitionOptions.withCrossFade())
