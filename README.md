@@ -1,6 +1,6 @@
 # Movies
 
-A the begning show the most Populer Movies and con go to the Movies Detalis.
+AT the begning show the most Populer Movies and con go to the Movies Detalis.
 and you can see the recommindation Movies.
 ## Deployment
 
@@ -10,17 +10,10 @@ Tec That I used
   Using : Kotlin coroutines Hilt navigation component Retrofit Room MvvM Clean Architecture
 ```
 
-
-## Demo
-
-Insert gif or link to demo
-
-
 ## Documentation
 
 [Documentation](https://www.themoviedb.org/documentation/api)
-
-
+Movies Api
 ## Screenshots
 
 ![App Screenshot](/home/hmaserv/Desktop/Screenshot_1661239258.png)
