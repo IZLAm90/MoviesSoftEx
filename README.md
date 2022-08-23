@@ -16,7 +16,7 @@ Tec That I used
 Movies Api
 ## Screenshots
 
-![App Screenshot](https://drive.google.com/file/d/16xVwhhjIJ1TylZhS00EMAkOVYA6Y07ov/view?usp=sharing)
+![App Screenshot](https://user-images.githubusercontent.com/22790640/132039034-d67b9fd7-387e-4ac7-80e5-4b22e560a903.jpeg)
 ![App Screenshot](https://drive.google.com/file/d/1W0oQBtflHK-FNXx7HOwJnmKfkgQZD-gW/view?usp=sharing)
 
 ## 🚀 About Me
@@ -27,5 +27,4 @@ I'm a Android Developer...
 
 
 ## 🔗 Links
-[![linkedin](www.linkedin.com/in/islam-ragab-mostafa)](https://www.linkedin.com/)
-
+[![linkedin](www.linkedin.com/in/islam-ragab-mostafa)]
