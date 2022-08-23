@@ -2,13 +2,9 @@
 
 AT the begning show the most Populer Movies and con go to the Movies Detalis.
 and you can see the recommindation Movies.
-## Deployment
 
-Tec That I used
 
-```bash
-  Using : Kotlin coroutines Hilt navigation component Retrofit Room MvvM Clean Architecture
-```
+this is using [kotlin , coroutines, clean architecture  code , android jet peck , unit testing]
 
 ## Documentation
 
