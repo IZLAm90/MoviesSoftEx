@@ -16,8 +16,9 @@ Tec That I used
 Movies Api
 ## Screenshots
 
-![App Screenshot](https://user-images.githubusercontent.com/22790640/132039034-d67b9fd7-387e-4ac7-80e5-4b22e560a903.jpeg)
-![App Screenshot](https://drive.google.com/file/d/1W0oQBtflHK-FNXx7HOwJnmKfkgQZD-gW/view?usp=sharing)
+![Screenshot_1661239258](https://user-images.githubusercontent.com/34184239/186106036-6f3665e5-cabd-4949-8d3a-c95b1f51cba8.png)
+![Screenshot_1661239270](https://user-images.githubusercontent.com/34184239/186106319-6fe70970-6327-4789-a2f2-08d5a2340195.png)
+
 
 ## 🚀 About Me
 I'm a Android Developer...
