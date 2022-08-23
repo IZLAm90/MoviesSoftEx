@@ -4,7 +4,7 @@ AT the begning show the most Populer Movies and con go to the Movies Detalis.
 and you can see the recommindation Movies.
 
 
-this is using [kotlin , coroutines, clean architecture  code , android jet peck , unit testing]
+this is using [kotlin , coroutines, clean architecture  code , android jet peck , Room ]
 
 ## Documentation
 
