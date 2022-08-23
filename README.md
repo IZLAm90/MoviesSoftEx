@@ -16,8 +16,8 @@ Tec That I used
 Movies Api
 ## Screenshots
 
-![App Screenshot](/home/hmaserv/Desktop/Screenshot_1661239258.png)
-![App Screenshot](/home/hmaserv/Desktop/Screenshot_1661239270.png)
+![App Screenshot](https://drive.google.com/file/d/16xVwhhjIJ1TylZhS00EMAkOVYA6Y07ov/view?usp=sharing)
+![App Screenshot](https://drive.google.com/file/d/1W0oQBtflHK-FNXx7HOwJnmKfkgQZD-gW/view?usp=sharing)
 
 ## 🚀 About Me
 I'm a Android Developer...
