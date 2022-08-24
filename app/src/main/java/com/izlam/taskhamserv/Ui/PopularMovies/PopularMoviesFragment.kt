@@ -14,6 +14,7 @@ import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.izlam.taskhamserv.Models.Results
 import com.izlam.taskhamserv.R
+import com.izlam.taskhamserv.Ui.PopularMovies.AdapterPopular.AdabterCategories
 import com.izlam.taskhamserv.Ui.PopularMovies.AdapterPopular.AdapterPop
 import com.izlam.taskhamserv.ViewModels.MainViewModel
 import com.izlam.taskhamserv.databinding.FragmentPopularMoviesBinding
@@ -26,7 +27,9 @@ class PopularMoviesFragment : Fragment() {
     lateinit var binding:FragmentPopularMoviesBinding
     private val viewModel: MainViewModel by viewModels()
     private lateinit var movies_rv : RecyclerView
+    private lateinit var cate_rv : RecyclerView
     private val adapter = AdapterPop()
+    private val adapterCat = AdabterCategories()
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         arguments?.let {
@@ -46,7 +49,9 @@ class PopularMoviesFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
         binding.shimmerFrameLayout.startShimmer()
         setUpRv()
+        setUpRvCate()
         getDataFromServer()
+        getMoviesCategories()
     }
 
     fun setUpRv(){
@@ -60,6 +65,11 @@ class PopularMoviesFragment : Fragment() {
 
         }
 
+    }
+    fun setUpRvCate(){
+        cate_rv=binding.rvGenres
+        cate_rv.setHasFixedSize(true)
+        cate_rv.adapter=adapterCat
     }
     fun getDataFromServer(){
         viewModel.movieResponse.observe(viewLifecycleOwner){
@@ -88,4 +98,27 @@ class PopularMoviesFragment : Fragment() {
             }
         }
     }
+
+    fun getMoviesCategories(){
+        viewModel.moviesList.observe(viewLifecycleOwner){
+            when(it){
+                is NetworkResult.Loading ->{
+                    Timber.d("onCreate:Loading Loading")
+                    Log.d("islam", "getMoviesCategories: Loading ")
+                }
+
+                is NetworkResult.Success ->{
+                    Timber.d("onCreate:Success ${it.data.gener}")
+                    adapterCat.setDataFirstTime(it.data.gener)
+                    Log.d("islam", "getMoviesCategories: ${it.data.gener}")
+                }
+                is NetworkResult.Failure ->{
+                    Timber.d("onCreate:Failure ${it.errorMessage}")
+                    Log.d("islam", "getMoviesCategories: ${it.errorMessage}")
+
+                }
+            }
+        }
+    }
+
 }

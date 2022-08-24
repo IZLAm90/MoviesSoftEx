@@ -7,11 +7,12 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
+import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.bumptech.glide.load.resource.drawable.DrawableTransitionOptions
-import com.izlam.taskhamserv.Ui.PopularMovies.AdapterPopular.AdapterPop
+import com.izlam.taskhamserv.R
 import com.izlam.taskhamserv.ViewModels.MovieViewModel
 import com.izlam.taskhamserv.databinding.FragmentSingleMovieBinding
 import com.izlam.taskhamserv.utils.Constant
@@ -45,7 +46,14 @@ private val Viewmodel:MovieViewModel by viewModels()
                 Viewmodel.getRecoMovie(movie)
             }
             setUpViewModel()
+            backArrow()
             getRcoData()
+        }
+    }
+
+    fun backArrow(){
+        binding.arrowBack.setOnClickListener{
+            findNavController().navigate(R.id.action_singleMovieFragment_to_popularMoviesFragment)
         }
     }
 

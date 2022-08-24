@@ -1,19 +1,18 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    tools:context=".Ui.PopularMovies.PopularMoviesFragment"
-    android:orientation="vertical"
     android:background="@color/colorAppBarBackground"
-    >
+    android:orientation="vertical"
+    tools:context=".Ui.PopularMovies.PopularMoviesFragment">
 
     <androidx.appcompat.widget.Toolbar
-        android:layout_marginTop="@dimen/_12sdp"
         android:id="@+id/toolBar"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/_12sdp"
         android:background="@color/colorAppBarBackground"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -23,9 +22,9 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:focusable="true"
-            android:orientation="horizontal"
+            android:focusableInTouchMode="true"
             android:gravity="center_vertical"
-            android:focusableInTouchMode="true">
+            android:orientation="horizontal">
 
 
             <ImageView
@@ -34,23 +33,23 @@
                 android:layout_height="50dp"
                 android:layout_marginEnd="@dimen/_10sdp"
                 android:src="@drawable/kora_logo"
-                android:visibility="visible"/>
+                android:visibility="visible" />
 
 
             <EditText
                 android:id="@+id/search_et"
                 android:layout_width="0dp"
-                android:layout_weight="1"
                 android:layout_height="wrap_content"
                 android:layout_marginEnd="25dp"
+                android:layout_weight="1"
                 android:background="@drawable/item_background_gray"
-                android:drawableStart="@drawable/ic_search"
+                android:drawableEnd="@drawable/ic_search"
+                android:drawablePadding="@dimen/_10sdp"
                 android:hint="search"
                 android:imeOptions="actionSearch"
                 android:inputType="text"
                 android:maxLines="1"
                 android:padding="8dp"
-                android:drawablePadding="@dimen/_10sdp"
                 android:textColor="@color/colorBlack"
                 android:textColorHint="@color/colorGray"
                 android:textSize="16sp"
@@ -64,31 +63,59 @@
 
     </androidx.appcompat.widget.Toolbar>
 
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/rv_genres"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/_15sdp"
+        android:layout_marginEnd="@dimen/_15sdp"
+        android:layout_marginBottom="@dimen/_3sdp"
+        app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+        android:orientation="horizontal"
+        tools:listitem="@layout/item_genres"
+        />
+
     <com.facebook.shimmer.ShimmerFrameLayout
-        android:visibility="visible"
         android:id="@+id/shimmerFrameLayout"
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="match_parent"
+        android:visibility="visible">
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:orientation="vertical">
-            <include layout="@layout/shimmer_placeholder_layout"/>
-            <include layout="@layout/shimmer_placeholder_layout"/>
-            <include layout="@layout/shimmer_placeholder_layout"/>
-            <include layout="@layout/shimmer_placeholder_layout"/>
-            <include layout="@layout/shimmer_placeholder_layout"/>
-            <include layout="@layout/shimmer_placeholder_layout"/>
-            <include layout="@layout/shimmer_placeholder_layout"/>
-            <include layout="@layout/shimmer_placeholder_layout"/>
-            <include layout="@layout/shimmer_placeholder_layout"/>
-            <include layout="@layout/shimmer_placeholder_layout"/>
-            <include layout="@layout/shimmer_placeholder_layout"/>
-            <include layout="@layout/shimmer_placeholder_layout"/>
-            <include layout="@layout/shimmer_placeholder_layout"/>
-            <include layout="@layout/shimmer_placeholder_layout"/>
-            <include layout="@layout/shimmer_placeholder_layout"/>
+
+            <include layout="@layout/shimmer_placeholder_layout" />
+
+            <include layout="@layout/shimmer_placeholder_layout" />
+
+            <include layout="@layout/shimmer_placeholder_layout" />
+
+            <include layout="@layout/shimmer_placeholder_layout" />
+
+            <include layout="@layout/shimmer_placeholder_layout" />
+
+            <include layout="@layout/shimmer_placeholder_layout" />
+
+            <include layout="@layout/shimmer_placeholder_layout" />
+
+            <include layout="@layout/shimmer_placeholder_layout" />
+
+            <include layout="@layout/shimmer_placeholder_layout" />
+
+            <include layout="@layout/shimmer_placeholder_layout" />
+
+            <include layout="@layout/shimmer_placeholder_layout" />
+
+            <include layout="@layout/shimmer_placeholder_layout" />
+
+            <include layout="@layout/shimmer_placeholder_layout" />
+
+            <include layout="@layout/shimmer_placeholder_layout" />
+
+            <include layout="@layout/shimmer_placeholder_layout" />
 
         </LinearLayout>
 
@@ -98,7 +125,6 @@
         android:id="@+id/displayrecycler"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        tools:listitem="@layout/movies_item"
         android:visibility="gone"
-        />
+        tools:listitem="@layout/movies_item" />
 </LinearLayout>

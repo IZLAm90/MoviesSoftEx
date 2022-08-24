@@ -24,7 +24,7 @@ object NetworkModule {
 
     val apiServiceHeader = Interceptor { chain ->
         val request = chain.request().newBuilder().addHeader("Authorization", "Bearer " + Constant.Bearer_Token)
-        Log.d("islam", "provideLoggingInterceptor: ${chain.request()} ")
+        Log.d("islam", "Interceptor: ${chain.request()} ")
         chain.proceed(request.build())
     }
     @Singleton

@@ -20,4 +20,15 @@ class Repository @Inject constructor(private val apiService:SimpleApi) {
         emit(NetworkResult.Failure(e.message ?: "unKwonError"))
     }
 
+
+    suspend fun getMoviesCategories()= flow {
+        emit(NetworkResult.Loading(true))
+        val responce=apiService.getMoviesCategores()
+        emit(NetworkResult.Success(responce))
+    }.flowOn(Dispatchers.IO)
+        .catch { e ->
+            emit(NetworkResult.Failure(e.message ?: "unKwonError"))
+
+        }
+
 }

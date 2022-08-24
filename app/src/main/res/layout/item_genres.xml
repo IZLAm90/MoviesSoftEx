@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="wrap_content"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    app:cardBackgroundColor="@color/colorItemBackground"
+    app:cardCornerRadius="@dimen/_10sdp"
+    android:elevation="@dimen/_3sdp"
+    app:cardPreventCornerOverlap="true"
+    app:cardElevation="@dimen/_3sdp"
+    app:cardUseCompatPadding="true"
+    android:layout_height="wrap_content">
+
+
+    <TextView
+        android:id="@+id/cate_name"
+        android:layout_width="wrap_content"
+        android:layout_height="@dimen/_20sdp"
+        android:text="islam"
+        android:textStyle="normal"
+        android:gravity="center_vertical"
+        android:textColor="@color/white"
+        android:fontFamily="sans-serif"
+        android:layout_margin="@dimen/_5sdp"
+        />
+
+
+</androidx.cardview.widget.CardView>
