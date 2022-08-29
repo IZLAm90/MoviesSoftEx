@@ -1,5 +1,7 @@
 package com.izlam.taskhamserv.Models
 
+import androidx.room.Entity
+import androidx.room.PrimaryKey
 import com.squareup.moshi.Json
 
 data class MovieModel(
@@ -57,9 +59,10 @@ data class MovieModel(
     @Json(name = "vote_count")
     val voteCount: Long
 )
-
+@Entity
 data class Genre(
-    val id: Long,
+    @PrimaryKey(autoGenerate = false)
+    val id: Int,
     val name: String
 )
 

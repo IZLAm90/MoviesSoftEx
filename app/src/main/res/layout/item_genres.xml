@@ -7,6 +7,7 @@
     android:elevation="@dimen/_3sdp"
     app:cardPreventCornerOverlap="true"
     app:cardElevation="@dimen/_3sdp"
+    android:id="@+id/item_categories"
     app:cardUseCompatPadding="true"
     android:layout_height="wrap_content">
 

@@ -2,9 +2,13 @@
 
 AT the begning show the most Populer Movies and con go to the Movies Detalis.
 and you can see the recommindation Movies.
+## Deployment
 
+Tec That I used
 
-this is using [kotlin , coroutines, clean architecture  code , android jet peck , Room ]
+```bash
+  Using : Kotlin coroutines Hilt navigation component Retrofit Room MvvM Clean Architecture
+```
 
 ## Documentation
 
@@ -12,9 +16,8 @@ this is using [kotlin , coroutines, clean architecture  code , android jet peck 
 Movies Api
 ## Screenshots
 
-![Screenshot_1661239258](https://user-images.githubusercontent.com/34184239/186106036-6f3665e5-cabd-4949-8d3a-c95b1f51cba8.png)
-![Screenshot_1661239270](https://user-images.githubusercontent.com/34184239/186106319-6fe70970-6327-4789-a2f2-08d5a2340195.png)
-
+![App Screenshot](https://drive.google.com/file/d/16xVwhhjIJ1TylZhS00EMAkOVYA6Y07ov/view?usp=sharing)
+![App Screenshot](https://drive.google.com/file/d/1W0oQBtflHK-FNXx7HOwJnmKfkgQZD-gW/view?usp=sharing)
 
 ## 🚀 About Me
 I'm a Android Developer...
@@ -24,5 +27,5 @@ I'm a Android Developer...
 
 
 ## 🔗 Links
-www.linkedin.com/in/islam-ragab-mostafa
+[![linkedin](www.linkedin.com/in/islam-ragab-mostafa)](https://www.linkedin.com/)
 

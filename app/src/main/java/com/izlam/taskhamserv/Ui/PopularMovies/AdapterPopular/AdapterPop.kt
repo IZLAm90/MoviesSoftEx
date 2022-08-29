@@ -55,6 +55,13 @@ class AdapterPop : RecyclerView.Adapter<PopUlarHolder>() {
         this.MoviesData.addAll(items)
         notifyDataSetChanged()
     }
+    fun filterSearch(item : Results){
+        MoviesData.add(item)
+        notifyDataSetChanged()
+    }
+    fun clearData(){
+        MoviesData.clear()
+    }
 
     fun UpdateData(itmes:List<Results>){
       //  this.MoviesData.addAll(itmes)

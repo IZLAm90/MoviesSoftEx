@@ -6,16 +6,20 @@ import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.izlam.taskhamserv.Models.GenresModel
+import com.izlam.taskhamserv.Models.Results
 import com.izlam.taskhamserv.Models.TopRateMoviesModel
 import com.izlam.taskhamserv.utils.NetworkResult
 import com.izlam.taskhamserv.Repositorys.Repository
+import com.izlam.taskhamserv.localData.Dao
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.*
+import kotlinx.coroutines.flow.buffer
+import kotlinx.coroutines.flow.collect
 
 
 import javax.inject.Inject
 @HiltViewModel
-class MainViewModel @Inject constructor (private val repository: Repository): ViewModel() {
+class MainViewModel @Inject constructor (private val repository: Repository, private val dao: Dao): ViewModel() {
 
     private var _movieResponse = MutableLiveData<NetworkResult<TopRateMoviesModel>>()
     val movieResponse: LiveData<NetworkResult<TopRateMoviesModel>> = _movieResponse
@@ -28,6 +32,10 @@ class MainViewModel @Inject constructor (private val repository: Repository): Vi
     fun fetchAllMovies(page : Int) {
         viewModelScope.launch {
             repository.getPopularMovies(page).collect {
+                withContext(Dispatchers.IO){
+                    delay(3000)
+                    Log.d("islam", "fetchAllMovies  DB: ${  dao.getAllResults()}")
+                }
                 _movieResponse.postValue(it)
             }
         }
@@ -42,6 +50,21 @@ class MainViewModel @Inject constructor (private val repository: Repository): Vi
             repository.getMoviesCategories().collect {
                 Log.d("islam", "getMoviesCategoris: ${it}")
                 _moviesList.postValue(it)
+            }
+        }
+    }
+
+
+    private val _filterList =MutableLiveData<Results>()
+    val filterList :LiveData<Results> =_filterList
+
+    fun getFilter( id : Int){
+        viewModelScope.launch {
+            repository.getFilterDB(id).collect{
+                it.buffer().collect{
+                    Log.d("islam", "getFilter: ${it}")
+                    _filterList.postValue(it)
+                }
             }
         }
     }

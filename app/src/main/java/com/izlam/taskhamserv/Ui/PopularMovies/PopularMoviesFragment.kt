@@ -8,7 +8,6 @@ import android.view.ViewGroup
 import androidx.core.os.bundleOf
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
-import androidx.lifecycle.lifecycleScope
 import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.RecyclerView
@@ -18,6 +17,7 @@ import com.izlam.taskhamserv.Ui.PopularMovies.AdapterPopular.AdabterCategories
 import com.izlam.taskhamserv.Ui.PopularMovies.AdapterPopular.AdapterPop
 import com.izlam.taskhamserv.ViewModels.MainViewModel
 import com.izlam.taskhamserv.databinding.FragmentPopularMoviesBinding
+import com.izlam.taskhamserv.localData.Dao
 import com.izlam.taskhamserv.utils.NetworkResult
 import dagger.hilt.android.AndroidEntryPoint
 import timber.log.Timber
@@ -30,6 +30,7 @@ class PopularMoviesFragment : Fragment() {
     private lateinit var cate_rv : RecyclerView
     private val adapter = AdapterPop()
     private val adapterCat = AdabterCategories()
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         arguments?.let {
@@ -62,7 +63,6 @@ class PopularMoviesFragment : Fragment() {
         adapter.onClickListener = { _,movie ->
             val bundle = bundleOf("movie" to movie.id)
             findNavController().navigate(R.id.action_popularMoviesFragment_to_singleMovieFragment,bundle)
-
         }
 
     }
@@ -70,6 +70,15 @@ class PopularMoviesFragment : Fragment() {
         cate_rv=binding.rvGenres
         cate_rv.setHasFixedSize(true)
         cate_rv.adapter=adapterCat
+        adapterCat.onClickListener = {position,model ->
+            viewModel.getFilter(model.id)
+            viewModel.filterList.observe(viewLifecycleOwner){
+                adapter.clearData()
+                adapter.filterSearch(it)
+            }
+
+
+        }
     }
     fun getDataFromServer(){
         viewModel.movieResponse.observe(viewLifecycleOwner){

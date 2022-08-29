@@ -5,12 +5,12 @@ import androidx.room.PrimaryKey
 import androidx.room.TypeConverter
 import androidx.room.TypeConverters
 import com.google.gson.annotations.SerializedName
-//@Entity(tableName = "Results")
+@Entity(tableName = "Results")
 data class Results(
     @SerializedName("adult") var adult:Boolean,
-    @SerializedName("backdrop_path") var backdrop_path:String,
+    @SerializedName("backdrop_path") var backdrop_path:String ?=null,
     @SerializedName("genre_ids")
-    var genre_ids:List<Int> ?,
+    var genre_ids:List<Int> ,
     @PrimaryKey(autoGenerate = false)
     @SerializedName("id")
     var id:Int,

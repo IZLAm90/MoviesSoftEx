@@ -4,6 +4,8 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.TextView
+import androidx.cardview.widget.CardView
+import androidx.core.os.persistableBundleOf
 import androidx.recyclerview.widget.RecyclerView
 import com.izlam.taskhamserv.Models.Genre
 import com.izlam.taskhamserv.Models.Results
@@ -13,12 +15,16 @@ import com.izlam.taskhamserv.databinding.ItemGenresBinding
 class AdabterCategories: RecyclerView.Adapter<AdabterCategories.CateGoriesViewHolder>() {
     lateinit var binding:ItemGenresBinding
     var cateData = arrayListOf<Genre>()
-
+    var onClickListener : ((Int, Genre)-> Unit) ?= null
 
     inner class CateGoriesViewHolder (itemView: View) : RecyclerView.ViewHolder(itemView){
         val name :TextView by lazy { itemView.findViewById(R.id.cate_name) }
+        val itemCategories :CardView by lazy { itemView.findViewById(R.id.item_categories) }
         fun bindView(model :Genre){
             name.text=model.name
+            itemCategories.setOnClickListener{
+                onClickListener?.invoke(layoutPosition,model)
+            }
         }
 
     }

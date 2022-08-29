@@ -28,15 +28,8 @@ class MainActivity : AppCompatActivity() {
 
     }
 
-//    fun setRecycler(list: ArrayList<ModelCategory>){
-//        var myAdapter=CategoryAdapter(list)
-//        binding.recyclerCategory.adapter=myAdapter
-//        binding.recyclerCategory.layoutManager= LinearLayoutManager(this)
-//        binding.recyclerCategory.setHasFixedSize(true)
-//    }
 
     override fun onBackPressed() {
-        //    super.onBackPressed()
 
     }
 }
