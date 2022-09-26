@@ -31,14 +31,7 @@ class PopularMoviesFragment : Fragment() {
     private val adapter = AdapterPop()
     private val adapterCat = AdabterCategories()
 
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-        arguments?.let {
-
-        }
-    }
-
-    override fun onCreateView(
+     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
@@ -64,8 +57,8 @@ class PopularMoviesFragment : Fragment() {
             val bundle = bundleOf("movie" to movie.id)
             findNavController().navigate(R.id.action_popularMoviesFragment_to_singleMovieFragment,bundle)
         }
-
     }
+
     fun setUpRvCate(){
         cate_rv=binding.rvGenres
         cate_rv.setHasFixedSize(true)
@@ -115,7 +108,6 @@ class PopularMoviesFragment : Fragment() {
                     Timber.d("onCreate:Loading Loading")
                     Log.d("islam", "getMoviesCategories: Loading ")
                 }
-
                 is NetworkResult.Success ->{
                     Timber.d("onCreate:Success ${it.data.gener}")
                     adapterCat.setDataFirstTime(it.data.gener)
@@ -129,5 +121,4 @@ class PopularMoviesFragment : Fragment() {
             }
         }
     }
-
 }
