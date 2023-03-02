@@ -1,44 +1,60 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.coordinatorlayout.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
     tools:context=".Ui.activity_view_pagerActivity">
-    <androidx.constraintlayout.motion.widget.MotionLayout
-        android:id="@+id/motion_layout"
+
+    <com.google.android.material.appbar.AppBarLayout
         android:layout_width="match_parent"
-        android:layout_height="100dp"
-        app:layoutDescription="@xml/activity_view_pager_integration_scene">
+        android:layout_height="wrap_content">
 
-        <ImageView
-            android:id="@+id/background"
-            android:layout_width="0dp"
-            android:layout_height="300dp"
-            android:src="@drawable/imagplacholder"
-            android:contentDescription="star_background_content_description"
-            android:scaleType="centerCrop" />
+        <com.google.android.material.appbar.CollapsingToolbarLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
 
-        <TextView
-            android:id="@+id/ship_emoji"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="rocket_emoji"
-            android:textAppearance="@style/TextAppearance.MaterialComponents.Headline4"
-            android:textColor="?colorSecondary"
-            android:rotation="30"/>
-    </androidx.constraintlayout.motion.widget.MotionLayout>
+            <androidx.constraintlayout.motion.widget.MotionLayout
+                android:id="@+id/motion_layout"
+                android:layout_width="match_parent"
+                android:layout_height="100dp"
+                app:layoutDescription="@xml/activity_view_pager_integration_scene">
 
-    <com.google.android.material.tabs.TabLayout
-        android:id="@+id/tabs"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        />
+                <ImageView
+                    android:id="@+id/background"
+                    android:layout_width="0dp"
+                    android:layout_height="300dp"
+                    android:contentDescription="star_background_content_description"
+                    android:scaleType="centerCrop"
+                    android:src="@drawable/imagplacholder" />
 
+                <TextView
+                    android:id="@+id/ship_emoji"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:rotation="30"
+                    android:text="rocket_emoji"
+                    android:textAppearance="@style/TextAppearance.MaterialComponents.Headline4"
+                    android:textColor="?colorSecondary" />
+            </androidx.constraintlayout.motion.widget.MotionLayout>
+            <com.google.android.material.tabs.TabLayout
+                android:id="@+id/tabs"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/_100sdp" />
+
+        </com.google.android.material.appbar.CollapsingToolbarLayout>
+    </com.google.android.material.appbar.AppBarLayout>
+<androidx.core.widget.NestedScrollView
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
 
     <androidx.viewpager.widget.ViewPager
         android:id="@+id/pager"
         android:layout_width="match_parent"
-        android:layout_height="match_parent" />
-</LinearLayout>
+        android:layout_height="match_parent"
+        android:layout_marginTop="@dimen/_120sdp" />
+</androidx.core.widget.NestedScrollView>
+
+</androidx.coordinatorlayout.widget.CoordinatorLayout>

@@ -17,11 +17,10 @@
         android:theme="@style/Theme.TaskHamServ"
         android:usesCleartextTraffic="true">
         <activity
-            android:name=".Ui.activity_view_pagerActivity"
+            android:name=".Ui.MotionLayoutActivity"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
-
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
 
@@ -30,7 +29,7 @@
                 android:value="" />
         </activity>
         <activity
-            android:name=".Ui.motionlayoutintegrationsActivity"
+            android:name=".Ui.CollapsedActivity"
             android:exported="true">
 
             <meta-data
@@ -38,8 +37,22 @@
                 android:value="" />
         </activity>
         <activity
+            android:name=".Ui.activity_view_pagerActivity"
+            android:exported="true">
+            <meta-data
+                android:name="android.app.lib_name"
+                android:value="" />
+        </activity>
+        <activity
+            android:name=".Ui.motionlayoutintegrationsActivity"
+            android:exported="true">
+            <meta-data
+                android:name="android.app.lib_name"
+                android:value="" />
+        </activity>
+        <activity
             android:name=".MainActivity"
-            android:exported="true"></activity>
+            android:exported="true" />
     </application>
 
 </manifest>

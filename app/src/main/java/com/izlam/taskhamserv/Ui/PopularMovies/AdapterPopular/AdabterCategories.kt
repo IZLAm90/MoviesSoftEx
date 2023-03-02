@@ -26,7 +26,6 @@ class AdabterCategories: RecyclerView.Adapter<AdabterCategories.CateGoriesViewHo
                 onClickListener?.invoke(layoutPosition,model)
             }
         }
-
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): CateGoriesViewHolder {
