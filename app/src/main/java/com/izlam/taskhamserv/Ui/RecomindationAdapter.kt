@@ -22,6 +22,7 @@ import com.izlam.taskhamserv.utils.Constant
 class RecomindationAdapter : RecyclerView.Adapter<RecomindationAdapter.RecomindationHolder>(){
     lateinit var binding: ActorsBinding
     var onClickListener: ((Int, Results) -> Unit)? = null
+    var onClickListenerREsults: ((Int, Results) -> Unit)? = null
     var MoviesData = arrayListOf<Results>()
     private val options : RequestOptions by lazy {
         RequestOptions.centerCropTransform()
