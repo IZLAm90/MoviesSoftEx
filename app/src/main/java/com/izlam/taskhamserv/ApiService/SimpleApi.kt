@@ -2,8 +2,10 @@ package com.izlam.taskhamserv.ApiService
 
 import com.izlam.taskhamserv.Models.GenresModel
 import com.izlam.taskhamserv.Models.MovieModel
+import com.izlam.taskhamserv.Models.RecitersResponse
 import com.izlam.taskhamserv.utils.Constant
 import com.izlam.taskhamserv.Models.TopRateMoviesModel
+import retrofit2.Response
 import retrofit2.http.GET
 import retrofit2.http.Header
 import retrofit2.http.Path
@@ -40,6 +42,9 @@ interface SimpleApi {
         @Query("language") language: String = "ut"
     ): GenresModel
 
-
+    @GET("reciters")
+    suspend fun getBroadCastingReciters(
+        @Query("page") page: Int,
+    ): Response<RecitersResponse>
 
 }

@@ -42,6 +42,8 @@ class PopularMoviesFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         binding.shimmerFrameLayout.startShimmer()
+
+
         setUpRv()
         setUpRvCate()
         getDataFromServer()
